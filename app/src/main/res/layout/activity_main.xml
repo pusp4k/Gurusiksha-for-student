@@ -10,6 +10,8 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_navigation">
 
+        <include layout="@layout/toolbar" />
+
         <androidx.appcompat.widget.ContentFrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
@@ -22,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:paddingBottom="0dp"
+            app:backgroundTint="@color/colorPrimaryDark"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp"
             app:fabAlignmentMode="center"
@@ -37,6 +40,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                app:itemIconTint="@drawable/ic_tab_color"
+                app:itemTextColor="@drawable/ic_tab_color"
                 android:background="@drawable/background_transparent"
                 app:elevation="@dimen/dimen_4dp"
                 app:labelVisibilityMode="labeled"
@@ -48,7 +53,7 @@
             android:id="@+id/btFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorPrimary"
+            app:backgroundTint="@color/colorPrimaryDark"
             app:borderWidth="0dp"
             app:elevation="@dimen/dimen_4dp"
             app:layout_anchor="@id/bottom_bar"

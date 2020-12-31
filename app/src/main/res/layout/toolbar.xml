@@ -9,8 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
+        android:layout_marginStart="@dimen/dimen_8dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_scrollFlags="scroll|enterAlways" />
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:background="@drawable/drawable_app_icon"
+            android:contentDescription="@string/explore" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimen_16sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

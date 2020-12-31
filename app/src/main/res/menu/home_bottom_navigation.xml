@@ -6,14 +6,14 @@
         android:id="@+id/navigation_home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home"
+        android:title="@string/home"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/navigation_explore"
         android:enabled="true"
         android:icon="@drawable/ic_compass"
-        android:title="Explore" />
+        android:title="@string/explore" />
 
     <item
         android:id="@+id/action_invisible"
@@ -24,12 +24,12 @@
         android:id="@+id/navigation_schedule"
         android:enabled="true"
         android:icon="@drawable/ic_calendar"
-        android:title="Schedule" />
+        android:title="@string/schedule" />
 
     <item
         android:id="@+id/navigation_profile"
         android:enabled="true"
         android:icon="@drawable/ic_user"
-        android:title="Profile" />
+        android:title="@string/profile" />
 
 </menu>
