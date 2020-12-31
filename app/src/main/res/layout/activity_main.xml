@@ -52,7 +52,7 @@
             app:borderWidth="0dp"
             app:elevation="@dimen/dimen_4dp"
             app:layout_anchor="@id/bottom_bar"
-            app:layout_behavior="com.puspak.palcarservice.utils.ScrollAwareFabBehavior"
+            app:layout_behavior="com.puspak.habraCarService.utils.ScrollAwareFabBehavior"
             app:srcCompat="@drawable/ic_edit"
             app:tint="@color/white" />
 
