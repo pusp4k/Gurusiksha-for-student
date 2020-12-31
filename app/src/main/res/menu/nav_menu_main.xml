@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_enquiry"
+            android:icon="@drawable/ic_question"
+            android:title="@string/title_enquiry" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_rate_us"
+            android:icon="@drawable/ic_rate_review_black_24dp"
+            android:title="@string/title_rate_us" />
+        <item
+            android:id="@+id/nav_item_refer"
+            android:icon="@drawable/ic_referral"
+            android:title="@string/title_refer_earn" />
+    </group>
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_about"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="@string/title_about" />
+        <item
+            android:id="@+id/nav_item_how_work"
+            android:icon="@drawable/ic_contract"
+            android:title="@string/title_how_work" />
+        <item
+            android:id="@+id/nav_item_privacy"
+            android:icon="@drawable/ic_password"
+            android:title="@string/title_privacy" />
+        <item
+            android:id="@+id/nav_item_terms"
+            android:icon="@drawable/ic_consent"
+            android:title="@string/title_terms" />
+    </group>
+    
+
+</menu>
