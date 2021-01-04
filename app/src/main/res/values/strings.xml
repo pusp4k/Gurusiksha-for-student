@@ -17,4 +17,9 @@
     <string name="user_name">User name</string>
     <string name="user_phone_number">User Phone Number</string>
     <string name="title_wallet">Voyage Points</string>
+    <string name="app_permission_msg">THIS APP NEEDS SMS, PHONE AND INTERNET PERMISSION TO WORK WITHOUT ANY PROBLEM</string>
+    <string name="permission_denied_msg"><![CDATA[YOU HAVE DENIED SOME PERMISSIONS. ALLOW ALL PERMISSION AT [Setting] > [Permissions]]]></string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="setting_msg">Go to Setting</string>
 </resources>
