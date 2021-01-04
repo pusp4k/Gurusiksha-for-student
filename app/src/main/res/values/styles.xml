@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/primaryTextColor</item>
-        <item name="fontFamily">@font/lato_regular</item>
+        <item name="fontFamily">@font/script_mt</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

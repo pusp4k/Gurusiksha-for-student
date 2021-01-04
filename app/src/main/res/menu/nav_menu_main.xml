@@ -5,6 +5,11 @@
         android:id="@+id/group1"
         android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_item_wallet"
+            android:icon="@drawable/ic_wallet"
+            android:title="@string/title_wallet" />
+
+        <item
             android:id="@+id/nav_item_enquiry"
             android:icon="@drawable/ic_question"
             android:title="@string/title_enquiry" />

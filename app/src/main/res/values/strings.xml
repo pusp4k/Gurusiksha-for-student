@@ -5,7 +5,7 @@
     <string name="explore">Explore</string>
     <string name="schedule">Schedule</string>
     <string name="profile">Profile</string>
-    <string name="title_terms">Terms and Conditions</string>
+    <string name="title_terms"> Usage Policy</string>
     <string name="title_privacy">Privacy</string>
     <string name="title_how_work">How It Works</string>
     <string name="title_about">About</string>
@@ -14,4 +14,7 @@
     <string name="title_enquiry">Enquiry</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_name">User name</string>
+    <string name="user_phone_number">User Phone Number</string>
+    <string name="title_wallet">Voyage Points</string>
 </resources>
