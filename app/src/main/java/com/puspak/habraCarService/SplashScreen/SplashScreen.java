@@ -1,16 +1,18 @@
 package com.puspak.habraCarService.SplashScreen;
 
 import android.Manifest;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,15 +22,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.puspak.habraCarService.MainActivity;
 import com.puspak.habraCarService.R;
 
@@ -115,7 +114,7 @@ public class SplashScreen extends AppCompatActivity {
                         Log.d(TAG, "Deep Link: " + deepLink.toString());
                         String referralId = deepLink.getQueryParameter("invitedby");
 
-                        if(referralId != null) {
+                        if (referralId != null) {
                             Log.d(TAG, "getDynamicLink: " + referralId);
                         }
 
@@ -126,6 +125,9 @@ public class SplashScreen extends AppCompatActivity {
                 .addOnFailureListener(this, e -> Log.w(TAG, "getDynamicLink:onFailure", e));
     }
 
+    /**
+     * @apiNote appUpdateManager
+     */
     private void checkInAppUpdate() {
         // Creates instance of the manager.
         AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(this);
@@ -157,7 +159,9 @@ public class SplashScreen extends AppCompatActivity {
         }).addOnFailureListener(Throwable::printStackTrace);
     }
 
-
+    /**
+     * @implSpec startActivity
+     */
     private void goToHome() {
         startActivity(new Intent(SplashScreen.this, MainActivity.class));
         finish();
@@ -201,57 +205,64 @@ public class SplashScreen extends AppCompatActivity {
                     // ShouldShowRequestPermissionRational will return true
                     // -----------------------------------------------------------------------------//
                     if (ActivityCompat.shouldShowRequestPermissionRationale(this, permName)) {
-                        showDialog("", R.string.app_permission_msg, R.string.yes,
+                        showDialog(R.string.app_permission_msg, true);
 
-                                (dialogInterface, i) -> {
-                                    dialogInterface.dismiss();
-                                    requestPermission();
-                                },
-                                R.string.no, (dialogInterface, i) -> {
-                                    dialogInterface.dismiss();
-                                    finish();
-                                }, false);
                     } else {
                         // Permission is denied [Never ask again is checked]
                         // Ask user to go to settings and manually allow permission
-                        showDialog("", R.string.permission_denied_msg, R.string.setting_msg,
-                                (dialogInterface, i) -> {
-                                    dialogInterface.dismiss();
 
-                                    // Go to Settings
-                                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                            Uri.fromParts("package", getPackageName(), null));
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    finish();
-                                },
-                                R.string.no, (dialogInterface, i) -> {
-                                    dialogInterface.dismiss();
-                                    finish();
-                                }, false);
+                        showDialog(R.string.permission_denied_msg, false);
+
                         break;
                     }
 
                 }
+
             }
 
         }
 
     }
 
-    public void showDialog(String title, int msg, int positiveLabel,
-                           DialogInterface.OnClickListener positiveClick,
-                           int negativeLabel, DialogInterface.OnClickListener negativeClick,
-                           boolean isCancelAble) {
+    private void showDialog(int msg,
+                            boolean shouldShowRequest) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title);
-        builder.setCancelable(isCancelAble);
-        builder.setMessage(msg);
-        builder.setPositiveButton(positiveLabel, positiveClick);
-        builder.setNegativeButton(negativeLabel, negativeClick);
+        LayoutInflater inflater = this.getLayoutInflater();
+        @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.custom_dialog, null);
+        builder.setView(dialogInterface);
+
+        TextView dialogTitle = dialogInterface.findViewById(R.id.dialogTitle);
+        TextView dialogMessage = dialogInterface.findViewById(R.id.dialogMessage);
+        Button dialogPositive = dialogInterface.findViewById(R.id.dialogPositive);
+        Button dialogNegative = dialogInterface.findViewById(R.id.dialogNegative);
+
+        dialogTitle.setText(R.string.app_permission_title);
+        dialogMessage.setText(msg);
 
         AlertDialog alert = builder.create();
+        alert.setCancelable(false);
+
+        dialogPositive.setOnClickListener(view -> {
+            if (shouldShowRequest) {
+                alert.dismiss();
+                requestPermission();
+            } else {
+                // Go to Settings
+                alert.dismiss();
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package", getPackageName(), null));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        dialogNegative.setOnClickListener(v -> {
+            alert.dismiss();
+            finish();
+        });
+
         alert.show();
     }
 
