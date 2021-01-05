@@ -1,4 +1,4 @@
-package com.puspak.habraCarService;
+package com.puspak.voyage;
 
 import org.junit.Test;
 

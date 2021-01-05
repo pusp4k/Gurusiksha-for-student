@@ -1,4 +1,4 @@
-package com.puspak.habraCarService.SplashScreen;
+package com.puspak.voyage.SplashScreen;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,8 +30,8 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.puspak.habraCarService.MainActivity;
-import com.puspak.habraCarService.R;
+import com.androweb.voyage.MainActivity;
+import com.androweb.voyage.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -160,11 +162,18 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     /**
-     * @implSpec startActivity
+     * StartActivity
+     * First Run Login Activity
+     * if Logged Start Main Activity
      */
     private void goToHome() {
-        startActivity(new Intent(SplashScreen.this, MainActivity.class));
-        finish();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                finish();
+            }
+        }, 3000);
 
     }
 
