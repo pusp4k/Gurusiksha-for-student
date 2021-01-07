@@ -37,4 +37,10 @@
     <string name="login_failed">"Login failed"</string>
     <string name="user_login">User Login</string>
     <string name="or">Or Continue with</string>
+
+    <string name="facebook_app_id">397616371517734</string>
+    <string name="fb_login_protocol_scheme">fb397616371517734</string>
+    <string name="facebook_login">Continue with Facebook</string>
+    <string name="google_login">Continue with Google</string>
+
 </resources>

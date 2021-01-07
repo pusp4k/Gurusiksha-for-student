@@ -1,4 +1,4 @@
-package com.puspak.voyage.SplashScreen;
+package com.androweb.voyage.SplashScreen;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.androweb.voyage.Login.LoginActivity;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
@@ -167,12 +168,10 @@ public class SplashScreen extends AppCompatActivity {
      * if Logged Start Main Activity
      */
     private void goToHome() {
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+            //startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            finish();
         }, 3000);
 
     }
