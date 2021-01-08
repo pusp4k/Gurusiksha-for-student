@@ -67,9 +67,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_32dp"
             android:enabled="false"
-            android:textStyle="bold"
             android:text="@string/action_sign_in"
-            android:textColor="@color/blk" />
+            android:textColor="@color/blk"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
@@ -108,13 +108,14 @@
                     android:visibility="gone" />
 
                 <Button
-                    android:layout_marginStart="@dimen/dimen_8dp"
-                    android:layout_marginTop="@dimen/dimen_8dp"
-                    android:layout_marginEnd="@dimen/dimen_8dp"
                     android:id="@+id/fb"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_60dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
                     android:backgroundTint="#416BC1"
+                    android:onClick="onClick"
                     android:text="@string/facebook_login"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -135,11 +136,12 @@
                 android:visibility="gone" />
 
             <Button
-                android:layout_margin="@dimen/dimen_8dp"
                 android:id="@+id/google"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_60dp"
+                android:layout_margin="@dimen/dimen_8dp"
                 android:backgroundTint="#cf4333"
+                android:onClick="onClick"
                 android:text="@string/google_login"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
