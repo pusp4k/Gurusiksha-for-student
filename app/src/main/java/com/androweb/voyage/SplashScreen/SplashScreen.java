@@ -46,6 +46,7 @@ public class SplashScreen extends AppCompatActivity {
     private String TAG = SplashScreen.class.getSimpleName();
     private static final int REQUEST_PERMISSION = 1234;
     private static final int APP_UPDATE_REQUEST_CODE = 200;
+    private Button btnContinue;
 
     private static String[] appPermission = {
             Manifest.permission.READ_PHONE_STATE,
@@ -59,7 +60,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-
+        btnContinue = findViewById(R.id.btn_continue);
         // Check Runtime Permission
         checkRunTimePermission();
 
@@ -168,12 +169,14 @@ public class SplashScreen extends AppCompatActivity {
      * if Logged Start Main Activity
      */
     private void goToHome() {
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashScreen.this, LoginActivity.class));
-            //startActivity(new Intent(SplashScreen.this, MainActivity.class));
-            finish();
-        }, 3000);
+        btnContinue.setOnClickListener(v -> {
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+                //startActivity(new Intent(SplashScreen.this, MainActivity.class));
 
+                finish();
+            }, 3000);
+        });
     }
 
     /**

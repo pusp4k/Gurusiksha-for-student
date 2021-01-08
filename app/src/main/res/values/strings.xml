@@ -42,5 +42,7 @@
     <string name="fb_login_protocol_scheme">fb397616371517734</string>
     <string name="facebook_login">Continue with Facebook</string>
     <string name="google_login">Continue with Google</string>
+    <string name="discover">Discover</string>
+    <string name="please_wait">Please wait…</string>
 
 </resources>

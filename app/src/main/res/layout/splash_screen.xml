@@ -4,27 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_cn_tower_edit">
+    android:background="@drawable/ic_app_splash">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_splash_icon" />
-
-    <ImageView
-        android:id="@+id/textView"
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/ic_institution_logo"
+        android:contentDescription="@string/explore"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/dimen_24dp"
+        android:layout_marginEnd="@dimen/dimen_24dp"
+        android:background="@drawable/btn_splash"
+        android:text="@string/discover"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/explore" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
