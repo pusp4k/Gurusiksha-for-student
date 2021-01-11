@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.androweb.voyage.UserDetails.UserDetails">
 
     <RelativeLayout
         android:id="@+id/main_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_main_view_user_bg"
+        android:background="@drawable/val_gradient_bg"
         android:paddingBottom="20dp">
 
         <RelativeLayout
@@ -17,19 +18,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_user_pic_circle_border">
+            android:layout_marginTop="20dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:id="@+id/ivLogo"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_margin="9dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/ic_user_pic_circle"
-                android:padding="3dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_user"
-                android:contentDescription="@string/discover" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_app_icon"
+                app:civ_border_color="@color/lightest_grey"
+                app:civ_border_overlay="false"
+                app:civ_border_width="2dp"
+                app:civ_circle_background_color="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btLogoEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:background="@android:color/transparent"
+                android:padding="4dp"
+                app:srcCompat="@drawable/ic_camera_border_background" />
 
         </RelativeLayout>
 
@@ -54,19 +66,8 @@
             android:fontFamily="sans-serif"
             android:text="@string/test_add"
             android:textAllCaps="true"
-            android:textColor="@color/address"
+            android:textColor="@color/white"
             android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="15dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_settings"
-            android:contentDescription="@string/discover" />
 
     </RelativeLayout>
 

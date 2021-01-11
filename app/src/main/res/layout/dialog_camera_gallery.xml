@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_8dp"
+        android:text="@string/choose_an_option"
+        android:textAlignment="center"
+        android:textColor="@color/blk"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_grey" />
+
+    <TextView
+        android:id="@+id/tvCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:drawablePadding="@dimen/dimen_32dp"
+        android:paddingStart="@dimen/dimen_32dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_32dp"
+        android:paddingBottom="@dimen/dimen_16dp"
+        android:text="@string/camera"
+        android:textColor="@color/blk"
+        android:textSize="@dimen/dimen_24sp"
+        app:drawableStartCompat="@drawable/ic_camera_gradient" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_grey" />
+
+    <TextView
+        android:id="@+id/tvGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:drawablePadding="@dimen/dimen_32dp"
+        android:paddingStart="@dimen/dimen_32dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_32dp"
+        android:paddingBottom="@dimen/dimen_16dp"
+        android:text="@string/gallery"
+        android:textColor="@color/blk"
+        android:textSize="@dimen/dimen_24sp"
+        app:drawableStartCompat="@drawable/ic_gallery_gradient" />
+
+</LinearLayout>

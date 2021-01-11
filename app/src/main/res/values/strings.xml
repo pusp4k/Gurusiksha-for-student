@@ -56,5 +56,8 @@
     <string name="test_name">Puspak Saha</string>
     <string name="test_add">new york, usa</string>
     <string name="email">Email</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="choose_an_option">Choose an option</string>
 
 </resources>
