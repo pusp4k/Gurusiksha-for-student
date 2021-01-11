@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.androweb.voyage.CustomProgressDialog.CustomProgressDialog;
 import com.androweb.voyage.Login.LoginActivity;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
@@ -56,6 +57,8 @@ public class SplashScreen extends AppCompatActivity {
             Manifest.permission.ACCESS_NETWORK_STATE
     };
 
+    private CustomProgressDialog customDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,8 @@ public class SplashScreen extends AppCompatActivity {
         // check in app update
         checkInAppUpdate();
 
+        // Progress Dialog Initializing
+        customDialog = new CustomProgressDialog(this);
     }
 
     private void checkRunTimePermission() {
@@ -170,10 +175,12 @@ public class SplashScreen extends AppCompatActivity {
      */
     private void goToHome() {
         btnContinue.setOnClickListener(v -> {
+            customDialog.showProgress();
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
                 startActivity(new Intent(SplashScreen.this, LoginActivity.class));
                 //startActivity(new Intent(SplashScreen.this, MainActivity.class));
 
+                customDialog.processFinished();
                 finish();
             }, 3000);
         });
