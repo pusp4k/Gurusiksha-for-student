@@ -45,5 +45,16 @@
     <string name="google_login">Continue with Google</string>
     <string name="discover">Discover</string>
     <string name="please_wait">Please wait…</string>
+    
+    <string name="facebook_error">Facebook not connected</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="google_error">Google account not connected</string>
+    <string name="test_phone_number">+91–1234567890</string>
+    <string name="testMail">abcd@testmail.com</string>
+    <string name="phone">Phone</string>
+    <string name="test_name">Puspak Saha</string>
+    <string name="test_add">new york, usa</string>
+    <string name="email">Email</string>
 
 </resources>
