@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_48dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
         android:layout_marginBottom="@dimen/dimen_24dp"
         android:gravity="center">
 
@@ -37,12 +37,17 @@
             android:layout_marginStart="@dimen/dimen_24dp"
             android:layout_marginTop="@dimen/dimen_8dp"
             android:layout_marginEnd="@dimen/dimen_24dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
             android:autofillHints="@string/prompt_phone"
-            android:background="@color/white"
+            android:background="@drawable/text_box_shape"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="@dimen/dimen_16dp"
             android:hint="@string/prompt_phone"
             android:inputType="textEmailAddress"
             android:padding="@dimen/dimen_8dp"
-            android:selectAllOnFocus="true" />
+            android:selectAllOnFocus="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/password"
@@ -52,31 +57,65 @@
             android:layout_marginTop="@dimen/dimen_8dp"
             android:layout_marginEnd="@dimen/dimen_24dp"
             android:autofillHints="@string/prompt_password"
-            android:background="@color/white"
+            android:background="@drawable/text_box_shape"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="@dimen/dimen_16dp"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:padding="@dimen/dimen_8dp"
-            android:selectAllOnFocus="true" />
+            android:selectAllOnFocus="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_32dp"
-            android:enabled="false"
-            android:text="@string/action_sign_in"
-            android:textColor="@color/blk"
-            android:textStyle="bold" />
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_24dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_background"
+                android:text="@string/action_sign_in"
+                android:textColor="@color/blk"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_24dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_background"
+                android:text="@string/action_register"
+                android:textColor="@color/blk"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/dimen_24dp"
+        android:layout_margin="@dimen/dimen_24dp"
         android:text="@string/or"
         android:textColor="@color/white"
         android:textStyle="bold" />
@@ -85,6 +124,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_16dp"
         android:orientation="vertical"
         android:paddingLeft="@dimen/dimen_24dp"
         android:paddingTop="@dimen/dimen_8dp"
@@ -110,11 +150,11 @@
                 <Button
                     android:id="@+id/fb"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dimen_8dp"
                     android:layout_marginTop="@dimen/dimen_8dp"
                     android:layout_marginEnd="@dimen/dimen_8dp"
-                    android:backgroundTint="#416BC1"
+                    android:background="@drawable/btn_background_facebook"
                     android:onClick="onClick"
                     android:text="@string/facebook_login"
                     android:textColor="@color/white"
@@ -138,9 +178,9 @@
             <Button
                 android:id="@+id/google"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_60dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_8dp"
-                android:backgroundTint="#cf4333"
+                android:background="@drawable/btn_background_google"
                 android:onClick="onClick"
                 android:text="@string/google_login"
                 android:textColor="@color/white"
