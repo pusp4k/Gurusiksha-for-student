@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.androweb.voyage.UserDetails.UserDetails">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/main_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/val_gradient_bg"
-        android:paddingBottom="20dp">
+        android:layout_height="160dp"
+        android:background="@drawable/app_header_bg"
+        android:padding="20dp"
+        tools:ignore="UselessParent">
 
-        <RelativeLayout
-            android:id="@+id/imgUser"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp">
+            android:layout_gravity="start">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:id="@+id/ivLogo"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_app_icon"
+                android:src="@drawable/gurusiksha_g_logo"
                 app:civ_border_color="@color/lightest_grey"
                 app:civ_border_overlay="false"
                 app:civ_border_width="2dp"
@@ -40,177 +37,262 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
                 android:padding="4dp"
                 app:srcCompat="@drawable/ic_camera_border_background" />
 
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgUser"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15sp"
-            android:text="@string/test_name"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
-
-
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="sans-serif"
-            android:text="@string/test_add"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/main_view">
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/dimen_4dp"
+                    android:text="@string/test_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/phone"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:background="@drawable/text_box_shape"
-                    android:text="@string/test_phone_number"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_outline_edit"
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/dimen_4dp" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_4dp"
+                    android:text="@string/test_add"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:background="@drawable/text_box_shape"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/testMail"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:autofillHints="Input Email" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_baseline_edit_location"
+                    android:contentDescription="@string/app_name" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/google"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:background="@drawable/text_box_shape"
-                    android:text="@string/google_error"
-                    android:focusable="false"
-                    android:textStyle="bold"
-                    android:textColor="#000000" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/facebook"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:background="@drawable/text_box_shape"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:focusable="false"
-                    android:textStyle="bold"
-                    android:text="@string/facebook_error"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
+    <!-- Header Area End-->
 
-</RelativeLayout>
+    <!-- User Detail Area Start-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/email_error"
+                android:background="@drawable/text_box_other"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:focusable="false"
+                android:hint="@string/email_error"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/dimen_4dp"
+                android:text="@string/email_error"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/phone_error"
+                android:background="@drawable/text_box_shape"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:focusable="false"
+                android:hint="@string/phone_error"
+                android:inputType="number"
+                android:padding="@dimen/dimen_4dp"
+                android:text="@string/phone_error"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dob"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/dob_error"
+                android:background="@drawable/text_box_shape"
+                android:drawableStart="@drawable/ic_cake"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:focusable="false"
+                android:hint="@string/dob_error"
+                android:padding="@dimen/dimen_4dp"
+                android:text="@string/dob_error"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:drawableStart="@drawable/ic_gender"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:padding="@dimen/dimen_4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_box_shape"
+                android:focusable="false"
+                android:text="@string/gender_error"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/facebook"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:padding="@dimen/dimen_4dp"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:drawableStart="@drawable/ic_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_box_shape"
+                android:focusable="false"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/facebook_error"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/google"
+                android:textColor="@color/headings"
+                android:textSize="13sp" />
+
+            <EditText
+                android:padding="@dimen/dimen_4dp"
+                android:drawableStart="@drawable/ic_google"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_box_shape"
+                android:focusable="false"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/google_error"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
