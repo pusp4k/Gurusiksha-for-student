@@ -1,4 +1,4 @@
-package com.androweb.voyage.CustomProgressDialog;
+package com.androweb.voyage.CustomDialog;
 
 import android.app.Activity;
 import android.app.Dialog;

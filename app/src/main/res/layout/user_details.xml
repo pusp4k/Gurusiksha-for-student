@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_gravity="start">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ivLogo"
+                android:id="@+id/userPhoto"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
@@ -32,7 +32,7 @@
                 app:civ_circle_background_color="@color/white" />
 
             <ImageButton
-                android:id="@+id/btLogoEdit"
+                android:id="@+id/btUserPicEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
@@ -56,7 +56,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_name"
+                    android:id="@+id/user_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -67,6 +67,7 @@
                     android:textStyle="bold" />
 
                 <ImageButton
+                    android:id="@+id/edit_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -83,7 +84,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_address"
+                    android:id="@+id/user_address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -95,6 +96,7 @@
                     android:textStyle="bold" />
 
                 <ImageButton
+                    android:id="@+id/edit_user_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -110,10 +112,11 @@
 
     <!-- User Detail Area Start-->
     <LinearLayout
+        android:layout_below="@+id/main_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dimen_16dp">
+        android:padding="@dimen/dimen_8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,6 +132,7 @@
                 android:textSize="13sp" />
 
             <EditText
+                android:id="@+id/user_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/email_error"
@@ -160,10 +164,11 @@
                 android:textSize="13sp" />
 
             <EditText
+                android:id="@+id/user_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/phone_error"
-                android:background="@drawable/text_box_shape"
+                android:background="@drawable/text_box_other"
                 android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="@dimen/dimen_8dp"
                 android:focusable="false"
@@ -173,7 +178,8 @@
                 android:text="@string/phone_error"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="TextFields" />
 
         </LinearLayout>
 
@@ -190,20 +196,19 @@
                 android:textColor="@color/headings"
                 android:textSize="13sp" />
 
-            <EditText
+            <TextView
+                android:id="@+id/user_dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/dob_error"
-                android:background="@drawable/text_box_shape"
-                android:drawableStart="@drawable/ic_cake"
+                android:background="@drawable/text_box_other"
                 android:drawablePadding="@dimen/dimen_8dp"
                 android:focusable="false"
-                android:hint="@string/dob_error"
                 android:padding="@dimen/dimen_4dp"
                 android:text="@string/dob_error"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_cake" />
 
         </LinearLayout>
 
@@ -220,26 +225,29 @@
                 android:textColor="@color/headings"
                 android:textSize="13sp" />
 
-            <EditText
-                android:drawableStart="@drawable/ic_gender"
-                android:drawablePadding="@dimen/dimen_8dp"
-                android:padding="@dimen/dimen_4dp"
+            <TextView
+                android:id="@+id/user_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_box_shape"
+                android:background="@drawable/text_box_other"
+                android:drawablePadding="@dimen/dimen_8dp"
                 android:focusable="false"
+                android:padding="@dimen/dimen_4dp"
                 android:text="@string/gender_error"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_gender" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/facebook_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -248,27 +256,30 @@
                 android:textColor="@color/headings"
                 android:textSize="13sp" />
 
-            <EditText
-                android:padding="@dimen/dimen_4dp"
-                android:drawablePadding="@dimen/dimen_8dp"
-                android:drawableStart="@drawable/ic_facebook"
+            <TextView
+                android:id="@+id/user_facebook_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_box_shape"
+                android:background="@drawable/text_box_other"
+                android:drawablePadding="@dimen/dimen_8dp"
                 android:focusable="false"
                 android:fontFamily="sans-serif-light"
+                android:padding="@dimen/dimen_4dp"
                 android:text="@string/facebook_error"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_facebook" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/google_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -277,22 +288,43 @@
                 android:textColor="@color/headings"
                 android:textSize="13sp" />
 
-            <EditText
-                android:padding="@dimen/dimen_4dp"
-                android:drawableStart="@drawable/ic_google"
-                android:drawablePadding="@dimen/dimen_8dp"
+            <TextView
+                android:id="@+id/user_google_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_box_shape"
+                android:background="@drawable/text_box_other"
+                android:drawablePadding="@dimen/dimen_8dp"
                 android:focusable="false"
                 android:fontFamily="sans-serif-light"
+                android:padding="@dimen/dimen_4dp"
                 android:text="@string/google_error"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_google" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryDark">
+
+        <Button
+            android:id="@+id/goNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dimen_24dp"
+            android:layout_marginEnd="@dimen/dimen_24dp"
+            android:background="@drawable/btn_background"
+            android:text="@string/next"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</RelativeLayout>

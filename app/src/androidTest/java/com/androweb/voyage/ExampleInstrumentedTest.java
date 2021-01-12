@@ -1,4 +1,4 @@
-package com.puspak.voyage;
+package com.androweb.voyage;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.puspak.palcarservice", appContext.getPackageName());
+        assertEquals("com.androweb.voyage", appContext.getPackageName());
     }
 }
