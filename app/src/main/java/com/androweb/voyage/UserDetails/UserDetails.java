@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,12 +18,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.androweb.voyage.CustomDialog.CameraGalleryDialog;
 import com.androweb.voyage.R;
+import com.androweb.voyage.databinding.UserDetailsBinding;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class UserDetails extends AppCompatActivity {
 
+    private UserDetailsBinding binding;
 
     private String TAG = UserDetails.class.getSimpleName();
 
@@ -30,7 +33,7 @@ public class UserDetails extends AppCompatActivity {
     private ImageView userPhoto;
     private ImageButton btnUserPicEdit;
     private ImageButton btEditUserName;
-    private ImageButton btEditUserAdd;
+    private Button btEditUserAdd;
     private TextView userName;
     private TextView userAddress;
 
@@ -50,10 +53,6 @@ public class UserDetails extends AppCompatActivity {
 
     private SharedPreferences appPreferences;
 
-//    public UserDetails (Context context) {
-//        this.mContext = context;
-//    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +60,6 @@ public class UserDetails extends AppCompatActivity {
 
         userPhoto = findViewById(R.id.userPhoto);
         btnUserPicEdit = findViewById(R.id.btUserPicEdit);
-        btEditUserName = findViewById(R.id.edit_user_name);
         btEditUserAdd = findViewById(R.id.edit_user_address);
         userName = findViewById(R.id.user_name);
         userAddress = findViewById(R.id.user_address);

@@ -53,8 +53,8 @@
     <string name="test_phone_number">+91–1234567890</string>
     <string name="testMail">abcd@testmail.com</string>
     <string name="phone">Phone</string>
-    <string name="test_name">Gurusiksha</string>
-    <string name="test_add">Where do you Live</string>
+    <string name="user_name_prompt">Your Good Name</string>
+    <string name="user_add_prompt">Where do you Live?</string>
     <string name="email">Email</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
@@ -66,5 +66,9 @@
     <string name="gender">Gender</string>
     <string name="gender_error"> May we know?</string>
     <string name="next">Next</string>
+    <string name="user_details">User Details</string>
+    <string name="userName">Name</string>
+    <string name="address">Address</string>
+    <string name="tap_to_fetch_location">Tap to fetch location</string>
 
 </resources>
