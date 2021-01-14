@@ -18,8 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.androweb.voyage.CustomDialog.CameraGalleryDialog;
 import com.androweb.voyage.CustomDialog.GenderPickerDialog;
+import com.androweb.voyage.LocationService.FetchLocationActivity;
 import com.androweb.voyage.R;
-import com.androweb.voyage.databinding.UserDetailsBinding;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -33,7 +33,6 @@ import java.util.Objects;
 
 public class UserDetails extends AppCompatActivity {
 
-    private UserDetailsBinding binding;
 
     private static String TAG = UserDetails.class.getSimpleName();
 
@@ -62,7 +61,7 @@ public class UserDetails extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_details);
+        setContentView(R.layout.activity_user_details);
 
         userPhoto = findViewById(R.id.userPhoto);
         btnUserPicEdit = findViewById(R.id.btUserPicEdit);
@@ -85,6 +84,8 @@ public class UserDetails extends AppCompatActivity {
         initDoBSelect(userDob.getText().toString().trim());
 
         initGenderChooser();
+
+        selectAddress();
 
     }
 
@@ -172,5 +173,13 @@ public class UserDetails extends AppCompatActivity {
 
     private void setGenderText(String genderSelector) {
         userGender.setText(genderSelector.trim());
+    }
+
+
+    private void selectAddress() {
+        btEditUserAdd.setOnClickListener(v ->{
+        FetchLocationActivity.getLocation(UserDetails.this,101,
+                "Select Location", 0.0, 0.0);
+        });
     }
 }

@@ -72,5 +72,10 @@
     <string name="tap_to_fetch_location">Tap to fetch location</string>
     <string name="female">Female</string>
     <string name="male">Male</string>
+    <string name="select_your_location">Select Your Location</string>
+    <string name="pin">pin</string>
+    <string name="location">Location</string>
+    <string name="pick_location">Pick Location</string>
+    <string name="location_error_msg">Location not found</string>
 
 </resources>
