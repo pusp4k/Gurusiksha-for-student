@@ -1,7 +1,7 @@
 package com.androweb.voyage.UserDetails;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -17,22 +17,28 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androweb.voyage.CustomDialog.CameraGalleryDialog;
+import com.androweb.voyage.CustomDialog.GenderPickerDialog;
 import com.androweb.voyage.R;
 import com.androweb.voyage.databinding.UserDetailsBinding;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
+
 public class UserDetails extends AppCompatActivity {
 
     private UserDetailsBinding binding;
 
-    private String TAG = UserDetails.class.getSimpleName();
+    private static String TAG = UserDetails.class.getSimpleName();
 
-    private Context mContext;
     private ImageView userPhoto;
     private ImageButton btnUserPicEdit;
-    private ImageButton btEditUserName;
     private Button btEditUserAdd;
     private TextView userName;
     private TextView userAddress;
@@ -76,6 +82,10 @@ public class UserDetails extends AppCompatActivity {
         // Photo setup
         initCamera();
 
+        initDoBSelect(userDob.getText().toString().trim());
+
+        initGenderChooser();
+
     }
 
     private void initCamera() {
@@ -100,7 +110,7 @@ public class UserDetails extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            if( data != null ) {
+            if (data != null) {
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 Uri userImage = result.getUri();
 
@@ -111,5 +121,56 @@ public class UserDetails extends AppCompatActivity {
                         .into(userPhoto);
             }
         }
+    }
+
+    /**
+     * User Dob Select dialog
+     */
+    private void initDoBSelect(String date) {
+        userDob.setOnClickListener(view -> openDateSelectDialog(date));
+    }
+
+    private void openDateSelectDialog(String date) {
+        Calendar calendar = Calendar.getInstance();
+
+        if (!date.isEmpty() || (date.equalsIgnoreCase(getResources().getString(R.string.dob_error)))) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+            try {
+                calendar.setTime(Objects.requireNonNull(sdf.parse(date)));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (datePicker, mYear, mMonth, mDay) -> {
+                    calendar.set(Calendar.YEAR, mYear);
+                    calendar.set(Calendar.MONTH, mMonth);
+                    calendar.set(Calendar.DAY_OF_MONTH, mDay);
+
+                    userDob.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(calendar.getTime()));
+                }, year, month, day);
+
+        datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
+        datePickerDialog.show();
+
+    }
+
+    private void initGenderChooser() {
+        userGender.setOnClickListener(view -> openGenderSelectDialog());
+
+    }
+
+    private void openGenderSelectDialog() {
+        GenderPickerDialog.newInstance(this::setGenderText).show(getSupportFragmentManager(),GenderPickerDialog.TAG);
+    }
+
+    private void setGenderText(String genderSelector) {
+        userGender.setText(genderSelector.trim());
     }
 }

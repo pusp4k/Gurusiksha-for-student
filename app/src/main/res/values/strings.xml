@@ -73,13 +73,4 @@
     <string name="female">Female</string>
     <string name="male">Male</string>
 
-    <string name="sun">SUN</string>
-    <string name="mon">MON</string>
-    <string name="tue">TUE</string>
-    <string name="wed">WED</string>
-    <string name="thu">THU</string>
-    <string name="fri">FRI</string>
-    <string name="sat">SAT</string>
-    <string name="current_date">Current date</string>
-
 </resources>

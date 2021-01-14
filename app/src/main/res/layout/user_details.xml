@@ -108,7 +108,7 @@
                     android:inputType="text"
                     android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textStyle="bold"
                     tools:ignore="LabelFor" />
 
@@ -163,7 +163,7 @@
                     android:inputType="text"
                     android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textStyle="bold"
                     tools:ignore="LabelFor" />
 
@@ -200,7 +200,7 @@
                     android:inputType="textEmailAddress"
                     android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textStyle="bold"
                     tools:ignore="LabelFor" />
             </LinearLayout>
@@ -237,7 +237,7 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     tools:ignore="TextFields" />
             </LinearLayout>
 
@@ -268,7 +268,7 @@
                     android:background="@drawable/text_box_other"
                     android:padding="@dimen/dimen_4dp"
                     android:hint="@string/dob_error"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -301,7 +301,7 @@
                     android:background="@drawable/text_box_other"
                     android:padding="@dimen/dimen_4dp"
                     android:hint="@string/gender_error"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -336,7 +336,7 @@
                     android:background="@drawable/text_box_other"
                     android:padding="@dimen/dimen_4dp"
                     android:hint="@string/facebook_error"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -370,7 +370,7 @@
                     android:background="@drawable/text_box_other"
                     android:padding="@dimen/dimen_4dp"
                     android:hint="@string/google_error"
-                    android:textColorHint="@color/dark_grey"
+                    android:textColorHint="@color/icon_color"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
