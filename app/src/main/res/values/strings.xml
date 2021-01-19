@@ -82,5 +82,10 @@
     <string name="set_destination">Set your destination</string>
     <string name="destination">Destination</string>
     <string name="source">Source</string>
+    <string name="trip_type">Trip type</string>
+    <string name="select_trip_details">Select Trip details</string>
+    <string name="one_way">One-way</string>
+    <string name="both_way">Both-way</string>
+    <string name="other">Other</string>
 
 </resources>
