@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dimen_8dp"
+        android:text="Select Trip details"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold" />
+
+    <CalendarView
+        android:id="@+id/fragment_calender_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/tripType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_calender_view">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="One-way" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Round-Trip" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

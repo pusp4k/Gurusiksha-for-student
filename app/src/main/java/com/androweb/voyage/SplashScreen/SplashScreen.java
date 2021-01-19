@@ -65,7 +65,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_screen);
+        setContentView(R.layout.activity_splash_screen);
         btnContinue = findViewById(R.id.btn_continue);
         // Check Runtime Permission
         checkRunTimePermission();
@@ -249,7 +249,7 @@ public class SplashScreen extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
-        @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.custom_dialog, null);
+        @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.dialog_custom, null);
         builder.setView(dialogInterface);
 
         TextView dialogTitle = dialogInterface.findViewById(R.id.dialogTitle);

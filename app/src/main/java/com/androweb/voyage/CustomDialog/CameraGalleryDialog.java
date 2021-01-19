@@ -223,7 +223,7 @@ public class CameraGalleryDialog extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         LayoutInflater inflater = this.getLayoutInflater();
-        @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.custom_dialog, null);
+        @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.dialog_custom, null);
         builder.setView(dialogInterface);
 
         TextView dialogTitle = dialogInterface.findViewById(R.id.dialogTitle);
