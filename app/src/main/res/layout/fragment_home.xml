@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <fragment
+            android:id="@+id/container"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/dimen_8dp">
+
+            <ImageButton
+                android:id="@+id/btCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/location"
+                android:padding="@dimen/dimen_8dp"
+                android:src="@drawable/ic_my_location" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_8dp"
+                    android:text="@string/source"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_start" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@color/blk"
+                    android:textStyle="bold"
+                    android:inputType="text"
+                    android:hint="@string/set_source"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:background="@drawable/text_box_shape"
+                    android:autofillHints="@string/set_source" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_8dp"
+                    android:text="@string/destination"
+                    android:textSize="@dimen/dimen_18sp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_finish" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textColor="@color/blk"
+                    android:textStyle="bold"
+                    android:inputType="text"
+                    android:hint="@string/set_destination"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:background="@drawable/text_box_shape"
+                    android:autofillHints="@string/set_destination" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btPickLocation"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/dimen_8dp"
+                android:layout_gravity="end"
+                android:background="@drawable/btn_next_bg"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:contentDescription="@string/next" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

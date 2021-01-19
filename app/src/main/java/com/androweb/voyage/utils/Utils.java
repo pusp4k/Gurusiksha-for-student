@@ -25,6 +25,7 @@ import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
 import com.androweb.voyage.Helper.Constant;
+import com.androweb.voyage.MainActivity;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.material.snackbar.Snackbar;
@@ -305,9 +306,15 @@ public class Utils {
         editor.apply();
     }
 
-    public static String getMentorName(Context context) {
+    public static String getUserName(Context context) {
         String MyPREFERENCES = "Registration";
-        return context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("MentorName", "");
+        return context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("UserName", "");
+    }
+
+
+    public static String getUserMobile(Context context) {
+        String MyPREFERENCES = "Registration";
+        return context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE).getString("UserMobile", "");
     }
 
     public static void setProfilePic(Context context, String profilePic) {

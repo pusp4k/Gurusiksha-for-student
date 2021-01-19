@@ -10,13 +10,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.androweb.voyage.CustomDialog.CustomProgressDialog;
+import com.androweb.voyage.utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -33,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CircleImageView imgUser;
     private TextView txtUserName;
     private TextView txtUserMobile;
+    private CustomProgressDialog customDialog;
+    private Fragment currentFragment;
+    private FragmentManager fragmentManager;
+    private ImageView ivCover;
 
 
     @Override
@@ -44,15 +54,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerlayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         View navView = navigationView.getHeaderView(0);
+        ivCover = navView.findViewById(R.id.ivCover);
         imgUser = navView.findViewById(R.id.ivLogo);
         txtUserName = navView.findViewById(R.id.userName);
         txtUserMobile = navView.findViewById(R.id.userPhone);
         bottomNavigationView = findViewById(R.id.bottomNavigation);
         floatingactionbutton = findViewById(R.id.btFab);
 
+        customDialog = new CustomProgressDialog(this);
+
         setupToolbar();
 
         setupNavigationDrawer();
+
+        setupNavigationHeaderUi();
+
+        fragmentManager = getSupportFragmentManager();
+
+        openHomeFragment();
+    }
+
+    private void openHomeFragment() {
+
     }
 
     private void setupToolbar() {
@@ -104,5 +127,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupNavigationHeaderUi () {
+        Picasso.get()
+                .load(R.drawable.app_header_bg)
+                .into(ivCover);
+
+        Picasso.get()
+                .load(R.drawable.img_app_icon) // TODO CHANGE WITH USER PHOTO
+        .placeholder(R.drawable.gurusiksha_g_logo)
+                .error(R.drawable.gurusiksha_g_logo)
+                .into(imgUser);
+
+        txtUserName.setText(Utils.getUserName(this));
+        txtUserMobile.setText(Utils.getUserMobile(this));
     }
 }
