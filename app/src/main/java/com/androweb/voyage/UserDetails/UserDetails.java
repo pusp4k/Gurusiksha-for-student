@@ -1,9 +1,13 @@
 package com.androweb.voyage.UserDetails;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -55,6 +59,9 @@ public class UserDetails extends AppCompatActivity {
     private boolean isNormalLogin;
     private boolean isFacebookLogin;
     private boolean isGoogleLogin;
+
+    private double latitude = 0.0;
+    private double longitude = 0.0;
 
     private SharedPreferences appPreferences;
 
@@ -178,8 +185,17 @@ public class UserDetails extends AppCompatActivity {
 
     private void selectAddress() {
         btEditUserAdd.setOnClickListener(v ->{
+
+
+            LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+            @SuppressLint("MissingPermission") Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if(location != null) {
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+            }
+
         FetchLocationActivity.getLocation(UserDetails.this,101,
-                "Select Location", 0.0, 0.0);
+                "Select Location", latitude, longitude);
         });
     }
 }

@@ -67,6 +67,15 @@ public class FetchLocationActivity extends AppCompatActivity implements OnMapRea
         // Preventing user to get a invalid Address
         btPickLocation.setEnabled(false);
 
+        String title = "";
+        if(getIntent() != null) {
+            title = getIntent().getStringExtra(PARAM_TITLE);
+            latitude = getIntent().getDoubleExtra(PARAM_LATITUDE,0.0);
+            longitude = getIntent().getDoubleExtra(PARAM_LONGITUDE,0.0);
+        }
+
+        latLng = new LatLng(latitude, longitude);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -146,7 +155,6 @@ public class FetchLocationActivity extends AppCompatActivity implements OnMapRea
         latitude = target.latitude;
         longitude = target.longitude;
 
-        Context context;
         Geocoder geocoder = new Geocoder(FetchLocationActivity.this);
 
         try {
