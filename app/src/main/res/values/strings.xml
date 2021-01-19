@@ -77,5 +77,6 @@
     <string name="location">Location</string>
     <string name="pick_location">Pick Location</string>
     <string name="location_error_msg">Location not found</string>
+    <string name="tap_to_connect">Tap to connect</string>
 
 </resources>

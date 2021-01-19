@@ -16,9 +16,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="-15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"
             android:text="@string/user_details"
             android:textColor="@color/white"
             android:textSize="@dimen/dimen_18sp"
@@ -31,10 +31,10 @@
             android:background="@color/white" />
 
         <FrameLayout
-            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userPhoto"
@@ -235,9 +235,9 @@
                     android:inputType="number"
                     android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
+                    android:textColorHint="@color/icon_color"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColorHint="@color/icon_color"
                     tools:ignore="TextFields" />
             </LinearLayout>
 
@@ -266,10 +266,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_box_other"
-                    android:padding="@dimen/dimen_4dp"
                     android:hint="@string/dob_error"
-                    android:textColorHint="@color/icon_color"
+                    android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
+                    android:textColorHint="@color/icon_color"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -299,10 +299,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_box_other"
-                    android:padding="@dimen/dimen_4dp"
                     android:hint="@string/gender_error"
-                    android:textColorHint="@color/icon_color"
+                    android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
+                    android:textColorHint="@color/icon_color"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -320,24 +320,57 @@
                 android:orientation="vertical"
                 android:padding="@dimen/dimen_4dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/dimen_8dp"
-                    android:gravity="center"
-                    android:text="@string/facebook"
-                    android:textColor="@color/headings"
-                    app:drawableStartCompat="@drawable/ic_facebook" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/dimen_8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/facebook"
+                        android:textColor="@color/headings"
+                        app:drawableStartCompat="@drawable/ic_facebook" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_bind"
+                            android:contentDescription="@string/facebook"
+                            android:padding="4dp" />
+
+                        <Button
+                            android:id="@+id/connect_fb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="@dimen/dimen_4dp"
+                            android:background="@drawable/text_box_other"
+                            android:gravity="center_vertical"
+                            android:text="@string/tap_to_connect"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/user_facebook_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_box_other"
-                    android:padding="@dimen/dimen_4dp"
                     android:hint="@string/facebook_error"
-                    android:textColorHint="@color/icon_color"
+                    android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
+                    android:textColorHint="@color/icon_color"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -354,24 +387,56 @@
                 android:orientation="vertical"
                 android:padding="@dimen/dimen_4dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/dimen_8dp"
-                    android:gravity="center"
-                    android:text="@string/google"
-                    android:textColor="@color/headings"
-                    app:drawableStartCompat="@drawable/ic_google" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/dimen_8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/google"
+                        android:textColor="@color/headings"
+                        app:drawableStartCompat="@drawable/ic_google" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_bind"
+                            android:contentDescription="@string/google"
+                            android:padding="4dp" />
+
+                        <Button
+                            android:id="@+id/connect_google"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="@dimen/dimen_4dp"
+                            android:background="@drawable/text_box_other"
+                            android:gravity="center_vertical"
+                            android:text="@string/tap_to_connect"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/user_google_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_box_other"
-                    android:padding="@dimen/dimen_4dp"
                     android:hint="@string/google_error"
-                    android:textColorHint="@color/icon_color"
+                    android:padding="@dimen/dimen_4dp"
                     android:textColor="#000000"
+                    android:textColorHint="@color/icon_color"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
