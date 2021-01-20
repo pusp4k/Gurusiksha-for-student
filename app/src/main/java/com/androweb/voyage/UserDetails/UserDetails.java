@@ -124,8 +124,8 @@ public class UserDetails extends AppCompatActivity {
 
                 Picasso.get()
                         .load(userImage)
-                        .placeholder(R.drawable.gurusiksha_g_logo)
-                        .error(R.drawable.gurusiksha_g_logo)
+                        .placeholder(R.drawable.ic_user_default)
+                        .error(R.drawable.ic_user_default)
                         .into(userPhoto);
             }
         }

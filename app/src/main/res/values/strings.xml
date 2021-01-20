@@ -85,7 +85,12 @@
     <string name="trip_type">Trip type</string>
     <string name="select_trip_details">Select Trip details</string>
     <string name="one_way">One-way</string>
-    <string name="both_way">Both-way</string>
+    <string name="both_way">Return</string>
     <string name="other">Other</string>
+    <string name="returning">Returning</string>
+    <string name="departing">Departing</string>
+    <string name="am">am</string>
+    <string name="pm">pm</string>
+    <string name="scroll_time">Scroll to select time</string>
 
 </resources>

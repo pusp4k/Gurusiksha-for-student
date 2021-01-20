@@ -98,7 +98,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btPickLocation"
+                android:id="@+id/goNext"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="@dimen/dimen_8dp"

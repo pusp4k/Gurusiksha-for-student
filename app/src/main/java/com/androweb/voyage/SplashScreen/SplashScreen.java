@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat;
 import com.androweb.voyage.CustomDialog.CustomProgressDialog;
 import com.androweb.voyage.MainActivity;
 import com.androweb.voyage.R;
+import com.androweb.voyage.UserDetails.UserDetails;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
@@ -180,8 +181,8 @@ public class SplashScreen extends AppCompatActivity {
         btnContinue.setOnClickListener(v -> {
             customDialog.showProgress();
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-
+                //startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, UserDetails.class));
                 customDialog.processFinished();
                 finish();
             }, 3000);

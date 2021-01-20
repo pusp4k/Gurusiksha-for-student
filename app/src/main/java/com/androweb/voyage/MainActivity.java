@@ -136,8 +136,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Picasso.get()
                 .load(R.drawable.img_app_icon) // TODO CHANGE WITH USER PHOTO
-        .placeholder(R.drawable.gurusiksha_g_logo)
-                .error(R.drawable.gurusiksha_g_logo)
+        .placeholder(R.drawable.ic_user_default)
+                .error(R.drawable.ic_user_default)
                 .into(imgUser);
 
         txtUserName.setText(Utils.getUserName(this));

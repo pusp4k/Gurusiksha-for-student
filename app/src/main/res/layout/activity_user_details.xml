@@ -41,7 +41,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/gurusiksha_g_logo"
+                android:src="@drawable/ic_user_default"
                 app:civ_border_color="@color/lightest_grey"
                 app:civ_border_overlay="false"
                 app:civ_border_width="2dp"
@@ -142,16 +142,29 @@
                         android:textColor="@color/headings"
                         app:drawableStartCompat="@drawable/ic_baseline_edit_location" />
 
-
-                    <Button
-                        android:id="@+id/edit_user_address"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:background="@drawable/text_box_other"
-                        android:drawableStart="@drawable/ic_my_location"
-                        android:text="@string/tap_to_fetch_location"
-                        android:textAllCaps="false" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_my_location" />
+
+
+                        <Button
+                            android:id="@+id/edit_user_address"
+                            android:layout_width="120dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center"
+                            app:backgroundTint="@color/blk"
+                            android:layout_marginStart="@dimen/dimen_4dp"
+                            android:layout_marginTop="@dimen/dimen_2dp"
+                            android:background="@drawable/tap_to_fetch_location"
+                            android:text="@string/tap_to_fetch_location" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <EditText
@@ -345,6 +358,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -357,13 +371,11 @@
 
                         <Button
                             android:id="@+id/connect_fb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="24dp"
+                            android:layout_width="110dp"
+                            android:layout_height="16dp"
                             android:layout_marginStart="@dimen/dimen_4dp"
-                            android:background="@drawable/text_box_other"
-                            android:gravity="center_vertical"
-                            android:text="@string/tap_to_connect"
-                            android:textAllCaps="false" />
+                            android:background="@drawable/tap_to_connect"
+                            app:backgroundTint="@color/blk" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -412,6 +424,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -424,10 +437,11 @@
 
                         <Button
                             android:id="@+id/connect_google"
-                            android:layout_width="wrap_content"
-                            android:layout_height="24dp"
+                            android:layout_width="110dp"
+                            android:layout_height="16dp"
                             android:layout_marginStart="@dimen/dimen_4dp"
-                            android:background="@drawable/text_box_other"
+                            android:background="@drawable/tap_to_connect"
+                            app:backgroundTint="@color/blk"
                             android:gravity="center_vertical"
                             android:text="@string/tap_to_connect"
                             android:textAllCaps="false" />
