@@ -24,8 +24,10 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import com.androweb.voyage.Fragment.FragmentHome;
 import com.androweb.voyage.Helper.Constant;
 import com.androweb.voyage.MainActivity;
+import com.androweb.voyage.databinding.FragmentHomeBinding;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.material.snackbar.Snackbar;

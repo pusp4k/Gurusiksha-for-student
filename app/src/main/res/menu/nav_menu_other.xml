@@ -2,8 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_teacher"
+        android:id="@+id/action_wallet"
         android:icon="@drawable/ic_wallet"
+        android:orderInCategory="300"
+        android:title="@string/title_wallet"
+        app:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/action_notification"
+        android:icon="@drawable/ic_notifications"
         android:orderInCategory="300"
         android:title="@string/title_wallet"
         app:showAsAction="ifRoom" />

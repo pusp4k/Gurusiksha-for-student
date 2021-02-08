@@ -15,4 +15,11 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="overlay_button_style" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/overlay_selector</item>
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
 </resources>

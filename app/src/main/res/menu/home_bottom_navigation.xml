@@ -16,11 +16,6 @@
         android:title="@string/explore" />
 
     <item
-        android:id="@+id/action_invisible"
-        android:enabled="false"
-        android:title="" />
-
-    <item
         android:id="@+id/navigation_schedule"
         android:enabled="true"
         android:icon="@drawable/ic_calendar"

@@ -75,6 +75,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
+            android:name=".Fragment.FragmentHome"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"

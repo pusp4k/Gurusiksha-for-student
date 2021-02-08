@@ -182,13 +182,13 @@ public class UserDetails extends AppCompatActivity {
         userGender.setText(genderSelector.trim());
     }
 
-
+    @SuppressLint("MissingPermission")
     private void selectAddress() {
         btEditUserAdd.setOnClickListener(v ->{
 
 
             LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-            @SuppressLint("MissingPermission") Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if(location != null) {
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();

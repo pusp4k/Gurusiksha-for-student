@@ -1,11 +1,5 @@
 package com.androweb.voyage;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,14 +7,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.ContentFrameLayout;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.androweb.voyage.CustomDialog.CustomProgressDialog;
+import com.androweb.voyage.Fragment.FragmentHome;
 import com.androweb.voyage.utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -28,20 +28,20 @@ import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private final static String TAG = MainActivity.class.getSimpleName();
     private Toolbar toolbar;
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
     private BottomNavigationView bottomNavigationView;
-    private FloatingActionButton floatingactionbutton;
     private CircleImageView imgUser;
     private TextView txtUserName;
     private TextView txtUserMobile;
     private CustomProgressDialog customDialog;
-    private Fragment currentFragment;
     private FragmentManager fragmentManager;
+    private ContentFrameLayout container;
     private ImageView ivCover;
 
 
@@ -59,9 +59,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         txtUserName = navView.findViewById(R.id.userName);
         txtUserMobile = navView.findViewById(R.id.userPhone);
         bottomNavigationView = findViewById(R.id.bottomNavigation);
-        floatingactionbutton = findViewById(R.id.btFab);
+        container = findViewById(R.id.content_frame);
 
         customDialog = new CustomProgressDialog(this);
+        customDialog.showProgress();
 
         setupToolbar();
 
@@ -76,6 +77,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void openHomeFragment() {
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        //FragmentExplore fragmentExplore = FragmentExplore.newInstance(this);
+        FragmentHome fragmentHome = FragmentHome.newInstance();
+        //ft.replace(R.id.content_frame, fragmentExplore);
+        ft.replace(R.id.content_frame, fragmentHome);
+        ft.commit();
+        customDialog.processFinished();
     }
 
     private void setupToolbar() {
@@ -85,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupNavigationDrawer() {
         drawerToggle = new ActionBarDrawerToggle(
-                this,drawerlayout,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawerlayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerlayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
@@ -99,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        drawerlayout =findViewById(R.id.drawerLayout);
-        if(drawerlayout.isDrawerOpen(GravityCompat.START)) {
+        drawerlayout = findViewById(R.id.drawerLayout);
+        if (drawerlayout.isDrawerOpen(GravityCompat.START)) {
             drawerlayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.nav_menu_wallet, menu);
+        getMenuInflater().inflate(R.menu.nav_menu_other, menu);
         return true;
     }
 
@@ -129,18 +137,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupNavigationHeaderUi () {
+    private void setupNavigationHeaderUi() {
         Picasso.get()
                 .load(R.drawable.app_header_bg)
                 .into(ivCover);
 
         Picasso.get()
-                .load(R.drawable.img_app_icon) // TODO CHANGE WITH USER PHOTO
-        .placeholder(R.drawable.ic_user_default)
+                .load(R.drawable.ic_user_default) // TODO CHANGE WITH USER PHOTO
+                .placeholder(R.drawable.ic_user_default)
                 .error(R.drawable.ic_user_default)
                 .into(imgUser);
 
-        txtUserName.setText(Utils.getUserName(this));
-        txtUserMobile.setText(Utils.getUserMobile(this));
+        String userName = Utils.getUserName(this);
+        String userMobile = Utils.getUserMobile(this);
+
+        if (userName == null || userName.equals("")) {
+            txtUserName.setText("Voyagers");
+        } else {
+            txtUserName.setText(userName);
+        }
+
+        if (userMobile == null || userMobile.equals("")) {
+            txtUserMobile.setText("9876500001");
+        } else {
+            txtUserMobile.setText(userMobile);
+        }
     }
 }

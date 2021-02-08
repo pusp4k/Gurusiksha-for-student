@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         tools:ignore="UselessParent">
 
         <fragment
@@ -17,99 +18,131 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="@dimen/dimen_8dp">
+    </FrameLayout>
 
-            <ImageButton
-                android:id="@+id/btCurrentLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/location"
-                android:padding="@dimen/dimen_8dp"
-                android:src="@drawable/ic_my_location" />
-
-        </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#FFFFFF"
-            android:orientation="vertical"
-            android:padding="@dimen/dimen_8dp">
+            android:layout_margin="@dimen/dimen_4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:text="@string/source"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_start" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_4dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/dimen_8dp"
-                    android:text="@string/source"
-                    android:textSize="@dimen/dimen_18sp"
-                    android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/ic_start" />
+                android:orientation="horizontal">
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:id="@+id/txt_source"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:textColor="@color/blk"
-                    android:textStyle="bold"
-                    android:inputType="text"
-                    android:hint="@string/set_source"
                     android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:layout_weight="1"
+                    android:autofillHints="@string/set_source"
                     android:background="@drawable/text_box_shape"
-                    android:autofillHints="@string/set_source" />
+                    android:backgroundTint="@color/grey"
+                    android:hint="@string/set_source"
+                    android:inputType="text"
+                    android:textColor="@color/blk"
+                    android:textStyle="bold" />
+
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/dimen_4dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_margin="@dimen/dimen_4dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:drawablePadding="@dimen/dimen_8dp"
                     android:text="@string/destination"
                     android:textSize="@dimen/dimen_18sp"
                     android:textStyle="bold"
                     app:drawableStartCompat="@drawable/ic_finish" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:drawablePadding="@dimen/dimen_4dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:text="@string/info"
                     android:textColor="@color/blk"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/dimen_10sp"
                     android:textStyle="bold"
-                    android:inputType="text"
-                    android:hint="@string/set_destination"
-                    android:layout_marginStart="@dimen/dimen_8dp"
-                    android:background="@drawable/text_box_shape"
-                    android:autofillHints="@string/set_destination" />
+                    app:drawableStartCompat="@drawable/ic_baseline_info" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txt_destination"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:layout_weight="1"
+                    android:autofillHints="@string/set_destination"
+                    android:background="@drawable/text_box_shape"
+                    android:backgroundTint="@color/grey"
+                    android:hint="@string/set_destination"
+                    android:inputType="text"
+                    android:textColor="@color/blk"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
 
             <ImageButton
                 android:id="@+id/goNext"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/dimen_8dp"
-                android:layout_gravity="end"
-                android:background="@drawable/btn_next_bg"
+                android:background="@drawable/ic_next_btn"
+                android:contentDescription="@string/next"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:contentDescription="@string/next" />
-
+                android:textStyle="bold" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

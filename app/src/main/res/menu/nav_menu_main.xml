@@ -8,11 +8,10 @@
             android:id="@+id/nav_item_wallet"
             android:icon="@drawable/ic_wallet"
             android:title="@string/title_wallet" />
-
         <item
-            android:id="@+id/nav_item_enquiry"
-            android:icon="@drawable/ic_question"
-            android:title="@string/title_enquiry" />
+            android:id="@+id/nav_item_refer"
+            android:icon="@drawable/ic_referral"
+            android:title="@string/title_refer_earn" />
     </group>
 
     <group
@@ -23,9 +22,10 @@
             android:icon="@drawable/ic_rate_review_black_24dp"
             android:title="@string/title_rate_us" />
         <item
-            android:id="@+id/nav_item_refer"
-            android:icon="@drawable/ic_referral"
-            android:title="@string/title_refer_earn" />
+            android:id="@+id/nav_item_enquiry"
+            android:icon="@drawable/ic_question"
+            android:title="@string/title_enquiry" />
+
     </group>
 
     <group
@@ -47,6 +47,17 @@
             android:id="@+id/nav_item_terms"
             android:icon="@drawable/ic_consent"
             android:title="@string/title_terms" />
+    </group>
+
+    <group
+        android:id="@+id/group4"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_item_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout"/>
+
     </group>
     
 

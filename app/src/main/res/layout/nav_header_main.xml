@@ -32,7 +32,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_app_icon"
+            android:src="@drawable/ic_user_default"
             app:civ_border_color="@color/lightest_grey"
             app:civ_border_overlay="false"
             app:civ_border_width="2dp"
@@ -50,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
+                android:layout_marginBottom="@dimen/dimen_4dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/white" />
 
@@ -58,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user_phone_number"
+                android:layout_marginTop="@dimen/dimen_4dp"
                 android:textColor="@color/white" />
         </LinearLayout>
 

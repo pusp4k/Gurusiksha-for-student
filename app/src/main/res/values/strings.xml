@@ -87,10 +87,44 @@
     <string name="one_way">One-way</string>
     <string name="both_way">Return</string>
     <string name="other">Other</string>
-    <string name="returning">Returning</string>
-    <string name="departing">Departing</string>
+    <string name="returning">Return on</string>
+    <string name="departing">Depart on</string>
     <string name="am">am</string>
     <string name="pm">pm</string>
-    <string name="scroll_time">Scroll to select time</string>
+    <string name="scroll_time">Select time</string>
+    <string name="car_type">Select car type</string>
+    <string name="optional">(Optional)</string>
+    <string name="sedan">Sedan</string>
+    <string name="logout">Logout</string>
+    <string name="hatchback">Hatchback</string>
+    <string name="suv">SUV</string>
+    <string name="coupe">Coupe</string>
+    <string name="checkbox">checkbox</string>
+
+    <string name="send_enquiry">Send Enquiry</string>
+    <string name="digha">DIGHA</string>
+    <string name="mandarmani">MANDARMANI</string>
+    <string name="mayapur">MAYAPUR</string>
+    <string name="puri">PURI</string>
+    <string name="tarapith">TARAPITH</string>
+    <string name="siliguri">SILIGURI</string>
+    <string name="eco_park">ECO-PARK</string>
+    <string name="location_error_title">Location Services Not Active</string>
+    <string name="location_error_message">Please enable Location Services and GPS</string>
+    <string name="info">Tap or input your desire destination</string>
+    <string name="destination_error_msg">Destination Required</string>
+    <string name="origin_error_msg">Origin Required</string>
+    <string name="origin_destination_error_msg">Origin and Destination Required</string>
+    <string name="trip_details">Trip details</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="origin">Origin</string>
+    <string name="dest">Dest</string>
+    <string name="test_date">02</string>
+    <string name="test_month">FEB</string>
+    <string name="test_day">Sun</string>
+    <string name="test_year">2021</string>
+    <string name="test_time">12:00</string>
+
 
 </resources>
