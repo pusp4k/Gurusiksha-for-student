@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<records>
+    <event>
+        <id>1</id>
+        <startdate>02</startdate>
+        <startmnt>JAN</startmnt>
+        <endDate>05</endDate>
+        <endMnt>FEB</endMnt>
+        <time>1:00</time>
+        <ampm>am</ampm>
+        <origin>kolkata/</origin>
+        <destination>Digha</destination>
+        <status>0</status>
+    </event>
+    <event>
+        <id>2</id>
+        <startdate>02</startdate>
+        <startmnt>JAN</startmnt>
+        <endDate>04</endDate>
+        <endMnt>FEB</endMnt>
+        <time>12:00</time>
+        <ampm>pm</ampm>
+        <origin>kolkata/</origin>
+        <destination>Digha</destination>
+        <status>0</status>
+    </event>
+
+    <event>
+        <id>3</id>
+        <startdate>02</startdate>
+        <startmnt>JAN</startmnt>
+        <endDate />
+        <endMnt />
+        <time>7:15</time>
+        <ampm>am</ampm>
+        <origin>kolkata/</origin>
+        <destination>Digha</destination>
+        <status>1</status>
+    </event>
+    <event>
+        <id>4</id>
+        <startdate>02</startdate>
+        <startmnt>JAN</startmnt>
+        <endDate>05</endDate>
+        <endMnt>FEB</endMnt>
+        <time>5:00</time>
+        <ampm>pm</ampm>
+        <origin>kolkata/</origin>
+        <destination>Darjeeling</destination>
+        <status>0</status>
+    </event>
+</records>

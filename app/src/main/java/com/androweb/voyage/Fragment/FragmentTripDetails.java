@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.androweb.voyage.R;
+import com.google.android.gms.maps.model.LatLng;
 
 public class FragmentTripDetails extends Fragment {
 
@@ -22,10 +23,20 @@ public class FragmentTripDetails extends Fragment {
     private Button btnReturn;
     private Button btnOther;
     private LinearLayout returningLayout;
+    private String mOrigin;
+    private String mDest;
+    private LatLng mSourceLatLng;
+    private LatLng mDestLatLng;
 
 
-    public static FragmentTripDetails newInstance() {
-        return new FragmentTripDetails();
+    public static FragmentTripDetails newInstance(String origin, String dest, LatLng sourceLatLng, LatLng destLatLng) {
+        FragmentTripDetails fragmentTripDetails = new FragmentTripDetails();
+        fragmentTripDetails.mOrigin = origin;
+        fragmentTripDetails.mDest = dest;
+        fragmentTripDetails.mSourceLatLng = sourceLatLng;
+        fragmentTripDetails.mDestLatLng = destLatLng;
+
+        return fragmentTripDetails;
     }
 
 
@@ -33,7 +44,6 @@ public class FragmentTripDetails extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_trip_details, container, false);
-
         textSource = rootView.findViewById(R.id.txt_source);
         textDestination = rootView.findViewById(R.id.txt_dest);
         btnOneWay = rootView.findViewById(R.id.btn_one_way);
@@ -49,6 +59,9 @@ public class FragmentTripDetails extends Fragment {
 
         // set one-way button selected
         btnOneWay.setSelected(true);
+
+        textSource.setText(mOrigin);
+        textDestination.setText(mDest);
 
         setClickListener();
     }

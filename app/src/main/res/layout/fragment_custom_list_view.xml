@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/blk"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/send_box"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:background="@drawable/digha"
+            android:id="@+id/img_dest_image"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_height="250dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/digha" />
+
+        <LinearLayout
+            android:id="@+id/dest_digha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dimen_8dp"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="0dp"
+                android:text="@string/explore"
+                android:textColor="#FF4F08"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_explore" />
+
+            <TextView
+                android:id="@+id/txt_place_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_0dp"
+                android:paddingEnd="@dimen/dimen_16dp"
+                android:text="@string/digha"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

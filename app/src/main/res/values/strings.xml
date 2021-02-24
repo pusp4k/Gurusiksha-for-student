@@ -125,6 +125,44 @@
     <string name="test_day">Sun</string>
     <string name="test_year">2021</string>
     <string name="test_time">12:00</string>
+    <string name="digha_activity_description">Enjoy the exciting water sports</string>
+    <string name="digha_nature_description">Experience mesmerizing view</string>
+    <string name="dest_family_description">Spend quality times with loved ones</string>
+    <string name="dest_expolring_description">Experience the thrill of exploring</string>
+    <string name="dest_memories_description">Experience, Enjoy, and bring something to share</string>
+    <string name="activity">Activity</string>
+    <string name="exciting">Exciting</string>
+    <string name="medinipur">Medinipur, WB</string>
+    <string name="outdoor_activity">outdoor activity</string>
+    <string name="food">Food</string>
+    <string name="delicious">Delicious</string>
+    <string name="digha_food_description">Enjoy the mouth watering sea food</string>
+    <string name="wow">Wow</string>
+    <string name="nature">Nature</string>
+    <string name="quality">Quality</string>
+    <string name="acquaintances">Acquaintances</string>
+    <string name="happening">Happening</string>
+    <string name="day_outing">Day-outing</string>
+    <string name="unforgettable">Unforgettable</string>
+    <string name="memories">Memories</string>
+    <string name="darjeeling">DARJEELING</string>
+    <string name="kolkata">KOLKATA</string>
+    <string name="mirik">MIRIK</string>
+    <string name="dooars">DOOARS</string>
+    <string name="bishnupur">BISHNUPUR</string>
+    <string name="sundarban">SUNDARBAN</string>
+    <string name="murshidabad">MURSHIDABAD</string>
+    <string name="deoghar">DEOGHAR</string>
+    <string name="future_events">Upcoming Events</string>
+    <string name="past_events">Past Events</string>
+    <string name="from_to">～</string>
+    <string name="last_week">Last Week</string>
+    <string name="status">Status</string>
+    <string name="completed">Completed</string>
+    <string name="canceled">Canceled</string>
+    <string name="no_event_found">No event Found</string>
+    <string name="previous_events">Previous Events</string>
+    <string name="recent_events">Recent Events</string>
 
 
 </resources>

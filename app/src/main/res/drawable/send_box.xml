@@ -7,10 +7,11 @@
 
     <corners
         android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"/>
+        android:bottomRightRadius="10dp"
 
-    <stroke
-        android:color="@color/blk"
-        android:width="2dp" />
+        android:topLeftRadius="12dp"
+        android:topRightRadius="12dp"
+        />
+
 
 </shape>

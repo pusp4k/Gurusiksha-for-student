@@ -22,4 +22,9 @@
         <item name="android:layout_margin">2dp</item>
     </style>
 
+    <style name="custom_checkBox_style" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:background">@drawable/custom_checkbox</item>
+        <item name="android:backgroundTint">@null</item>
+    </style>
+
 </resources>

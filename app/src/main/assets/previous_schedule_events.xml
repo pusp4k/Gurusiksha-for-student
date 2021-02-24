@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<records>
+    <event>
+        <id>1</id>
+        <startdate>02</startdate>
+        <startmnt>JAN</startmnt>
+        <origin>kolkata</origin>
+        <destination>Digha</destination>
+    </event>
+    <event>
+        <id>2</id>
+        <startdate>31</startdate>
+        <startmnt>JAN</startmnt>
+        <origin>kolkata</origin>
+        <destination>Digha</destination>
+    </event>
+
+    <event>
+        <id>3</id>
+        <startdate>21</startdate>
+        <startmnt>JAN</startmnt>
+        <origin>kolkata</origin>
+        <destination>Digha</destination>
+    </event>
+    <event>
+        <id>4</id>
+        <startdate>31</startdate>
+        <startmnt>DEC</startmnt>
+        <origin>kolkata</origin>
+        <destination>Darjeeling</destination>
+    </event>
+
+    <event>
+        <id>3</id>
+        <startdate>21</startdate>
+        <startmnt>JAN</startmnt>
+        <origin>kolkata</origin>
+        <destination>Digha</destination>
+    </event>
+    <event>
+        <id>4</id>
+        <startdate>31</startdate>
+        <startmnt>DEC</startmnt>
+        <origin>kolkata</origin>
+        <destination>Darjeeling</destination>
+    </event>
+
+    <event>
+        <id>5</id>
+        <startdate>21</startdate>
+        <startmnt>JAN</startmnt>
+        <origin>kolkata</origin>
+        <destination>Digha</destination>
+    </event>
+    <event>
+        <id>6</id>
+        <startdate>31</startdate>
+        <startmnt>DEC</startmnt>
+        <origin>kolkata</origin>
+        <destination>Darjeeling</destination>
+    </event>
+</records>

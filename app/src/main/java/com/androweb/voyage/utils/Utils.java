@@ -24,10 +24,8 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
-import com.androweb.voyage.Fragment.FragmentHome;
 import com.androweb.voyage.Helper.Constant;
-import com.androweb.voyage.MainActivity;
-import com.androweb.voyage.databinding.FragmentHomeBinding;
+import com.androweb.voyage.R;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.material.snackbar.Snackbar;
@@ -41,16 +39,17 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.OnFailureListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 
-import com.androweb.voyage.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Utils {
@@ -333,7 +332,7 @@ public class Utils {
     }
 
     public static String changeDateFormat(String date, String oldFormat, String newFormat) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat, Locale.US);
 
         Date sourceDate = null;
         try {
@@ -342,20 +341,21 @@ public class Utils {
             e.printStackTrace();
         }
 
-        SimpleDateFormat targetFormat = new SimpleDateFormat(newFormat);
+        SimpleDateFormat targetFormat = new SimpleDateFormat(newFormat, Locale.US);
+        assert sourceDate != null;
         return targetFormat.format(sourceDate);
     }
 
     public static String getCurrentDateTime(String format) {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat(format);
+        SimpleDateFormat df = new SimpleDateFormat(format, Locale.US);
         return df.format(c.getTime());
     }
 
     public static int getWeekDayNumberFromDateString(String stringDate, String dateTimeFormat) {
         int dayOfWeek = 0;
 
-        SimpleDateFormat formatter = new SimpleDateFormat(dateTimeFormat);
+        SimpleDateFormat formatter = new SimpleDateFormat(dateTimeFormat, Locale.US);
         Date date;
 
         try {
@@ -397,7 +397,7 @@ public class Utils {
             is.read(buffer);
             is.close();
 
-            jsonString = new String(buffer, "UTF-8");
+            jsonString = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -482,7 +482,7 @@ public class Utils {
 
     public static boolean isValidExpiration(String date) {
         // use SimpleDateFormat to parse values like '0609' as date 'June 2009'
-        DateFormat sdf = new SimpleDateFormat("MMyy");
+        DateFormat sdf = new SimpleDateFormat("MMyy", Locale.US);
 
         // establish current date as last day of previous month at 23:59:59
         Calendar now = Calendar.getInstance();
@@ -546,5 +546,10 @@ public class Utils {
                 (1 - Math.pow(1 + monthlyRate, -termInMonths));
 
         return monthlyPayment;
+    }
+
+    public static boolean isValidLatLng(double latitude, double longitude) {
+        return ((!(latitude < -90.0) && !(latitude > 90.0)) && (latitude != 0.0))
+                && ((!(longitude < -180.0) && !(longitude > 180.0)) && (longitude != 0.0));
     }
 }

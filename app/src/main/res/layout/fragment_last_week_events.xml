@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blk">
+
+    <LinearLayout
+        android:id="@+id/events"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/text_box_custom_list"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_4dp">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:background="@drawable/ic_calendar"
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="@string/test_date" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_event_dt_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_4dp"
+                        android:layout_marginEnd="@dimen/dimen_4dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/test_date"
+                        android:textColor="@color/heading_color" />
+
+                    <TextView
+                        android:id="@+id/txt_event_mnt_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/test_month"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_2dp"
+                    android:layout_marginEnd="@dimen/dimen_2dp"
+                    android:contentDescription="@string/test_month"
+                    android:text="@string/from_to"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/ll_return_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/txt_event_dt_fin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_4dp"
+                        android:layout_marginEnd="@dimen/dimen_4dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/test_date"
+                        android:textColor="@color/heading_color" />
+
+                    <TextView
+                        android:id="@+id/txt_event_mnt_fin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/test_month"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5">
+
+                <TextView
+                    android:id="@+id/txt_event_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_time"
+                    android:textColor="@color/white"
+                    app:drawableStartCompat="@drawable/ic_clock" />
+
+                <TextView
+                    android:id="@+id/txt_event_time_am_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4dp"
+                    android:text="@string/pm"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_event_srcName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_8dp"
+                    android:drawablePadding="@dimen/dimen_4dp"
+                    android:gravity="bottom"
+                    android:text="@string/kolkata"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:drawableStartCompat="@drawable/ic_start" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_event_destName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_8dp"
+                    android:drawablePadding="@dimen/dimen_4dp"
+                    android:gravity="bottom"
+                    android:text="@string/bishnupur"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:drawableStartCompat="@drawable/ic_finish"
+                    app:drawableTint="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                android:text="@string/status"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_status_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/completed"
+                    android:textColor="@color/heading_color" />
+
+                <TextView
+                    android:id="@+id/txt_status_canceled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/canceled"
+                    android:textColor="@color/red"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

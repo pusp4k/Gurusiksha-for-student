@@ -92,7 +92,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="@dimen/dimen_4dp">
 
@@ -127,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="end"
                 android:orientation="vertical"
                 android:padding="@dimen/dimen_4dp">
 
@@ -174,13 +173,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="@dimen/dimen_24dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_8dp"
-                android:gravity="center"
+                android:gravity="start"
                 android:padding="@dimen/dimen_8dp"
                 android:text="@string/departing"
                 android:textAllCaps="true"
@@ -193,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_2dp"
                 android:layout_marginBottom="@dimen/dimen_8dp"
-                android:gravity="center"
+                android:gravity="start"
                 android:orientation="horizontal">
 
                 <TextView
@@ -260,6 +260,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginEnd="@dimen/dimen_24dp"
             android:orientation="vertical"
             android:visibility="invisible">
 
@@ -267,7 +268,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_8dp"
-                android:gravity="center"
+                android:gravity="end"
                 android:padding="@dimen/dimen_8dp"
                 android:text="@string/returning"
                 android:textAllCaps="true"
@@ -280,7 +281,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_2dp"
                 android:layout_marginBottom="@dimen/dimen_8dp"
-                android:gravity="center"
+                android:gravity="end"
                 android:orientation="horizontal">
 
                 <TextView

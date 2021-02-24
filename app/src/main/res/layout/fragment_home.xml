@@ -59,7 +59,7 @@
                     android:background="@drawable/text_box_shape"
                     android:backgroundTint="@color/grey"
                     android:hint="@string/set_source"
-                    android:inputType="text"
+                    android:focusable="false"
                     android:textColor="@color/blk"
                     android:textStyle="bold" />
 
@@ -119,7 +119,7 @@
                     android:background="@drawable/text_box_shape"
                     android:backgroundTint="@color/grey"
                     android:hint="@string/set_destination"
-                    android:inputType="text"
+                    android:focusable="false"
                     android:textColor="@color/blk"
                     android:textStyle="bold" />
 

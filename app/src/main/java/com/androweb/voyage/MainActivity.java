@@ -1,5 +1,6 @@
 package com.androweb.voyage;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.androweb.voyage.CustomDialog.CustomProgressDialog;
+import com.androweb.voyage.Fragment.FragmentExplorer;
 import com.androweb.voyage.Fragment.FragmentHome;
+import com.androweb.voyage.Fragment.FragmentSchedule;
 import com.androweb.voyage.utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -28,7 +31,7 @@ import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private final static String TAG = MainActivity.class.getSimpleName();
     private Toolbar toolbar;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentManager fragmentManager;
     private ContentFrameLayout container;
     private ImageView ivCover;
+    private FragmentTransaction fragmentTransaction;
 
 
     @Override
@@ -65,30 +69,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         customDialog.showProgress();
 
         setupToolbar();
-
         setupNavigationDrawer();
 
         setupNavigationHeaderUi();
 
         fragmentManager = getSupportFragmentManager();
 
-        openHomeFragment();
+        openSchFragment();
+
+        customDialog.processFinished();
+
+        setupBottomNavigation();
+    }
+
+    private void setupBottomNavigation() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
     private void openHomeFragment() {
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        //FragmentExplore fragmentExplore = FragmentExplore.newInstance(this);
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         FragmentHome fragmentHome = FragmentHome.newInstance();
-        //ft.replace(R.id.content_frame, fragmentExplore);
-        ft.replace(R.id.content_frame, fragmentHome);
-        ft.commit();
-        customDialog.processFinished();
+        fragmentTransaction.replace(R.id.content_frame, fragmentHome);
+        fragmentTransaction.commit();
+        toolbar.setTitle("Home");
+    }
+
+
+    private void openExploreFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentExplorer fragmentExplore = FragmentExplorer.newInstance();
+        fragmentTransaction.replace(R.id.content_frame, fragmentExplore);
+        fragmentTransaction.commit();
+        toolbar.setTitle("Explore");
+    }
+
+    private void openSchFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentSchedule fragmentSchedule = FragmentSchedule.newInstance();
+        fragmentTransaction.replace(R.id.content_frame, fragmentSchedule);
+        fragmentTransaction.commit();
+        toolbar.setTitle("Schedule");
     }
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
     }
 
     private void setupNavigationDrawer() {
@@ -100,9 +125,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        switch (item.getItemId()){
+            case R.id.navigation_home:
+                openHomeFragment();
+                break;
+            case R.id.navigation_explore:
+                openExploreFragment();
+                break;
+            case R.id.navigation_schedule:
+                openSchFragment();
+        }
+        return true;
     }
 
     @Override
@@ -122,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -163,4 +200,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             txtUserMobile.setText(userMobile);
         }
     }
+
 }
