@@ -2,6 +2,8 @@ package com.androweb.voyage.Helper;
 
 import com.androweb.voyage.R;
 
+import java.util.ArrayList;
+
 public class Constant {
     public static String APP_RATING = "APP_RATING";
 

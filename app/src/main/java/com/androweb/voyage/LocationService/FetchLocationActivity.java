@@ -1,7 +1,6 @@
 package com.androweb.voyage.LocationService;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -169,7 +168,7 @@ public class FetchLocationActivity extends AppCompatActivity implements OnMapRea
                     tvLocation.setText(address);
                     btPickLocation.setEnabled(true);
                 } else {
-                    tvLocation.setText(getResources().getString(R.string.location_error_msg));
+                    tvLocation.setText(getResources().getString(R.string.location_err_msg));
                 }
             }
         } catch ( IOException e) {

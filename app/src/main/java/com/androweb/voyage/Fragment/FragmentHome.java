@@ -73,13 +73,13 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
     protected LatLng sourceLatLng;
     protected LatLng destLatLng;
     private GoogleMap gMap;
-    private Location location;
+    private static Location location;
     private TextView textSource;
     private TextView textDestination;
     private ImageButton goNext;
-    private String address;
-    private String postalCode;
-    private String country;
+    private static String address;
+    private static String postalCode;
+    private static String country;
     private String origin;
     private String dest;
     private Marker destMarker;
@@ -144,7 +144,7 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
         String strSrc = textSource.getText().toString();
         String strDes = textDestination.getText().toString();
 
-        boolean sourceEmpty = ((strSrc.equals("")) || (strSrc.equalsIgnoreCase(getResources().getString(R.string.location_error_msg))));
+        boolean sourceEmpty = ((strSrc.equals("")) || (strSrc.equalsIgnoreCase(getResources().getString(R.string.location_err_msg))));
         boolean destEmpty = strDes.equals("");
 
         if (sourceEmpty && destEmpty) {
@@ -171,7 +171,7 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
         gMap.setMyLocationEnabled(true);
-        location = getLocation();
+        location = getLocation(requireContext());
 
         double latitude;
         double longitude;
@@ -190,13 +190,13 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                 .position(sourceLatLng)
                 .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_source_pin)));
 
-        String placeName = getPlaceName(sourceLatLng);
+        String placeName = getPlaceName(sourceLatLng, requireContext());
 
         if (placeName != null) {
             textSource.setText(placeName);
             origin = placeName;
         } else {
-            textSource.setText(R.string.location_error_msg);
+            textSource.setText(R.string.location_err_msg);
         }
 
         markerPoints.add(sourceLatLng);
@@ -230,12 +230,12 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
                     .position(destLatLng)
                     .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_destination_pin)));
 
-            String destPlaceName = getPlaceName(destLatLng);
+            String destPlaceName = getPlaceName(destLatLng, requireContext());
             if (destPlaceName != null) {
                 textDestination.setText(destPlaceName);
                 dest = destPlaceName;
             } else {
-                textDestination.setText(R.string.location_error_msg);
+                textDestination.setText(R.string.location_err_msg);
             }
             // Check and validate Source and Destination were captured
             if (markerPoints.size() >= 2) {
@@ -256,10 +256,11 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
     /**
      * Get Place Name
      * @param latLng latLng
+     * @param context
      * @return cityName
      */
-    private String getPlaceName(LatLng latLng) {
-        Geocoder geocoder = new Geocoder(requireContext());
+    public static String getPlaceName(LatLng latLng, Context context) {
+        Geocoder geocoder = new Geocoder(context);
 
         try {
             List<Address> addressList = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
@@ -285,13 +286,14 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
     /**
      * Get Current Location
      * @return Location
+     * @param context context
      */
     @SuppressLint("MissingPermission")
-    public Location getLocation() {
+    public static Location getLocation(Context context) {
         try {
-            LocationManager locationManager = (LocationManager) requireContext().getSystemService(Context.LOCATION_SERVICE);
+            LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             // getting GPS status
-            boolean isGPSEnabled = locationManager
+             boolean isGPSEnabled = locationManager
                     .isProviderEnabled(LocationManager.GPS_PROVIDER);
             // getting network status
             boolean isNetworkEnabled = locationManager
@@ -299,7 +301,7 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
 
             if (!isGPSEnabled && !isNetworkEnabled) {
                 // Build the alert dialog
-                showAlertDialog();
+                showAlertDialog(context);
             } else {
                 // GPS Enabled get lat/long using GPS Services
                 if (isGPSEnabled) {
@@ -328,10 +330,11 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
 
     /**
      * Alert Dialog for Location Not found
+     * @param context context
      */
-    private void showAlertDialog() {
-        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(requireContext());
-        LayoutInflater inflater = this.getLayoutInflater();
+    private  static void showAlertDialog(Context context) {
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("InflateParams") View dialogInterface = inflater.inflate(R.layout.dialog_custom, null);
         builder.setView(dialogInterface);
 
@@ -350,7 +353,7 @@ public class FragmentHome extends Fragment implements OnMapReadyCallback {
             // Show location settings when the user acknowledges the alert dialog
             alert.dismiss();
             Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(intent);
+            context.startActivity(intent);
 
         });
         dialogNegative.setOnClickListener(v -> alert.dismiss());

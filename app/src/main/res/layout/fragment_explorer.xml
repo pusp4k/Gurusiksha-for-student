@@ -6,7 +6,7 @@
     android:background="@color/blk"
     android:layout_height="match_parent">
 
-    <fragment
+    <ListView
         android:id="@+id/custom_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

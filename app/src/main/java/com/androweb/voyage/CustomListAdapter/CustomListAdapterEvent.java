@@ -15,31 +15,12 @@ import androidx.annotation.Nullable;
 
 import com.androweb.voyage.R;
 import com.androweb.voyage.utils.DataModel;
-import com.google.android.material.snackbar.Snackbar;
+import com.androweb.voyage.utils.ViewHolder;
 
 import java.util.ArrayList;
 
-class ViewHolder {
 
-    LinearLayout events;
-    LinearLayout returnDate;
-    TextView startDate;
-    TextView startMnt;
-    TextView endDate;
-    TextView endMnt;
-    TextView eventTime;
-    TextView amPm;
-    TextView srcName;
-    TextView destName;
-    TextView okStatus;
-    TextView cancelStatus;
-    TextView preScrName;
-    TextView preDesName;
-    TextView preStartDate;
-    TextView preStartMnt;
-}
-
-public class CustomListAdapterEvent extends ArrayAdapter<DataModel> implements View.OnClickListener {
+public class CustomListAdapterEvent extends ArrayAdapter<DataModel> {
     final ArrayList<DataModel> dataSet;
     Context mContext;
     boolean recentEvents;
@@ -51,22 +32,6 @@ public class CustomListAdapterEvent extends ArrayAdapter<DataModel> implements V
         this.dataSet = dataModels;
         this.mContext = context;
         this.recentEvents = recentItems;
-    }
-
-    @Override
-    public void onClick(View view) {
-        int position = (Integer) view.getTag();
-        Object object = getItem(position);
-        DataModel dataModel = (DataModel) object;
-
-        switch (view.getId()) {
-            case R.id.events:
-
-                Snackbar.make(view, "Details" + dataModel.getDestName(), Snackbar.LENGTH_SHORT)
-                        .setAction("No Action", null).show();
-                break;
-
-        }
     }
 
     @NonNull

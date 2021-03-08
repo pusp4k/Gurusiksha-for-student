@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/events"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="85dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/text_box_custom_list"

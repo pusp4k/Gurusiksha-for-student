@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/dimen_16dp"
         android:layout_marginEnd="@dimen/dimen_8dp"
         android:layout_marginBottom="@dimen/dimen_8dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/text_box_event"
         android:baselineAligned="false"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,6 +25,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:layout_marginTop="@dimen/dimen_4dp"
             android:id="@+id/ll_past_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,6 +51,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="@dimen/dimen_4dp"
             android:id="@+id/ll_future_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,8 +97,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/send_box"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:background="@drawable/text_box_event"
             android:orientation="vertical"
             android:padding="@dimen/dimen_4dp"
             tools:ignore="UselessParent">
@@ -116,7 +117,7 @@
                 android:id="@+id/event_details"
                 android:name="com.androweb.voyage.CustomListAdapter.CustomListAdapterEvent"
                 android:layout_width="match_parent"
-                android:layout_height="182dp"
+                android:layout_height="189dp"
                 android:divider="@color/blk"/>
 
             <TextView
@@ -156,8 +157,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/send_box"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:background="@drawable/text_box_event"
             android:orientation="vertical"
             android:padding="@dimen/dimen_4dp"
             tools:ignore="UselessParent">
@@ -177,7 +177,7 @@
                 android:id="@+id/previous_event_details"
                 android:name="com.androweb.voyage.CustomListAdapter.CustomListAdapterEvent"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="287dp"
                 android:divider="@color/blk" />
 
             <TextView

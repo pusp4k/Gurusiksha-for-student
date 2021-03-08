@@ -31,9 +31,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class FragmentSchedule extends Fragment {
     ArrayList<DataModel> recentDataModels = new ArrayList<>();
     ArrayList<DataModel> previousDataModels = new ArrayList<>();
-    private TextView noDataFound;
-    private TextView priNoDataFound;
-    private boolean recentItems;
     LinearLayout recentEvents;
     LinearLayout futureEvents;
 
@@ -45,15 +42,15 @@ public class FragmentSchedule extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
-        noDataFound = rootView.findViewById(R.id.txt_no_data_found);
-        priNoDataFound = rootView.findViewById(R.id.pri_txt_no_data_found);
+        TextView noDataFound = rootView.findViewById(R.id.txt_no_data_found);
+        TextView priNoDataFound = rootView.findViewById(R.id.pri_txt_no_data_found);
         recentEvents = rootView.findViewById(R.id.ll_past_event);
         futureEvents = rootView.findViewById(R.id.ll_future_events);
 
 
         ListView recentListView = rootView.findViewById(R.id.event_details);
         ListView previousListView = rootView.findViewById(R.id.previous_event_details);
-        recentItems = getRecentItemDetails();
+        boolean recentItems = getRecentItemDetails();
         if(recentItems) {
             recentListView.setAdapter(new CustomListAdapterEvent(recentDataModels, getActivity(), recentItems));
         } else {

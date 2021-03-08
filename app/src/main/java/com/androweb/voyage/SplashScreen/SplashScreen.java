@@ -14,6 +14,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,31 +28,31 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.androweb.voyage.CustomDialog.CustomProgressDialog;
-import com.androweb.voyage.Fragment.FragmentHome;
 import com.androweb.voyage.MainActivity;
 import com.androweb.voyage.R;
-import com.androweb.voyage.UserDetails.UserDetails;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SplashScreen extends AppCompatActivity {
 
-    private String TAG = SplashScreen.class.getSimpleName();
     private static final int REQUEST_PERMISSION = 1234;
     private static final int APP_UPDATE_REQUEST_CODE = 200;
-    private Button btnContinue;
-
-    private static String[] appPermission = {
+    private static final String[] appPermission = {
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.INTERNET,
             Manifest.permission.ACCESS_NETWORK_STATE,
@@ -61,7 +63,10 @@ public class SplashScreen extends AppCompatActivity {
             Manifest.permission.CAMERA
 
     };
-
+    private final String TAG = SplashScreen.class.getSimpleName();
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+    private Button btnContinue;
+    private TextView welcomeMsg;
     private CustomProgressDialog customDialog;
 
     @Override
@@ -69,6 +74,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         btnContinue = findViewById(R.id.btn_continue);
+        welcomeMsg = findViewById(R.id.welcome_msg);
         // Check Runtime Permission
         checkRunTimePermission();
 
@@ -78,8 +84,54 @@ public class SplashScreen extends AppCompatActivity {
         // check in app update
         checkInAppUpdate();
 
+        // Set Welcome Message
+        getTimeAndSetMsg();
+
         // Progress Dialog Initializing
         customDialog = new CustomProgressDialog(this);
+    }
+
+    private void getTimeAndSetMsg() {
+        String mngOne = "05:00:00";
+        String mngTwo = "11:59:59";
+        String afterOne = "12:00:00";
+        String afterTwo = "15:59:59";
+        String eveOne = "16:00:00";
+        String eveTwo = "19:59:59";
+        String nightOne = "20:00:00";
+        String nightTwo = "04:59:59";
+
+        Calendar calendar = Calendar.getInstance();
+
+        String currentTime = simpleDateFormat.format(calendar.getTime());
+        Date date = parseDate(currentTime);
+        Date dateMngSt = parseDate(mngOne);
+        Date dateMngEnd = parseDate(mngTwo);
+        Date dateAfterSt = parseDate(afterOne);
+        Date dateAfterEnd = parseDate(afterTwo);
+        Date dateEveSt = parseDate(eveOne);
+        Date dateEveEnd = parseDate(eveTwo);
+        Date dateNightSt = parseDate(nightOne);
+        Date dateNightEnd = parseDate(nightTwo);
+
+        if (dateMngSt.before(date) && dateMngEnd.after(date)) {
+            welcomeMsg.setText(R.string.good_morning);
+        } else if (dateAfterSt.before(date) && dateAfterEnd.after(date)) {
+            welcomeMsg.setText(R.string.good_afternoon);
+        } else if (dateEveSt.before(date) && dateEveEnd.after(date)) {
+            welcomeMsg.setText(R.string.good_evening);
+        } else if (dateNightSt.before(date) && dateNightEnd.after(date)) {
+            welcomeMsg.setText(R.string.good_night);
+        }
+
+    }
+
+    private Date parseDate(String date) {
+        try {
+            return simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            return new Date(0);
+        }
     }
 
     private void checkRunTimePermission() {
